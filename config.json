@@ -1,0 +1,30 @@
+{
+  "server_address": "localhost",
+  "server_port": 5021,
+  "commands": [
+    {
+      "command": "Powershell Get-Process",
+      "interval_seconds": 20
+    },
+    {
+      "command": "Powershell (Get-Counter -Counter '\\Processor(_Total)\\% Processor Time').CounterSamples.CookedValue",
+      "interval_seconds": 10
+    },
+    {
+      "command": "Powershell Get-ComputerInfo",
+      "interval_seconds": 120
+    },
+    {
+      "command": "Powershell (Get-Counter -Counter '\\Memory\\% Committed Bytes In Use').CounterSamples.CookedValue",
+      "interval_seconds": 10
+    },
+    {
+      "command": "Powershell Get-PSDrive -PSProvider FileSystem | Select-Object Name, Used, Free, Size",
+      "interval_seconds": 300
+    },
+    {
+      "command": "Powershell Get-NetAdapterStatistics | Select-Object Name, ReceivedBytes, SentBytes",
+      "interval_seconds": 60
+    }
+  ]
+}
